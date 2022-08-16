@@ -17,62 +17,61 @@ class SideMenu extends StatelessWidget {
       color: light,
       child: ListView(
         children: [
-          ResponsiveWidget.isSmallScreen(context)
-              ? Column(
-                  mainAxisSize: MainAxisSize.min,
+          if (ResponsiveWidget.isSmallScreen(context))
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 40),
+                Row(
                   children: [
-                    const SizedBox(height: 40),
-                    Row(
-                      children: [
-                        SizedBox(width: width / 48),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: Image.asset("assets/icons/icon.png"),
-                        ),
-                        Flexible(
-                          child: CustomText(
-                            text: "Dash",
-                            size: 20,
-                            weight: FontWeight.bold,
-                            color: active,
-                          ),
-                        ),
-                        SizedBox(
-                          width: width / 48,
-                        )
-                      ],
+                    SizedBox(width: width / 48),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Image.asset("assets/icons/icon.png"),
                     ),
-                    const SizedBox(height: 40),
-                    Divider(
-                      color: lightGray.withOpacity(.1),
+                    Flexible(
+                      child: CustomText(
+                        text: "Dash",
+                        size: 20,
+                        weight: FontWeight.bold,
+                        color: active,
+                      ),
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: sideMenuItems
-                          .map(
-                            (itemName) => SideMenuItem(
-                              itemName: itemName == AuthenticationPageRoute
-                                  ? "Log Out"
-                                  : itemName,
-                              onTap: () {
-                                if (itemName == AuthenticationPageRoute) {
-                                  //TODO: go to authentication page
-                                }
-                                if (!menuController.isActive(itemName)) {
-                                  menuController.changeActiveitemTo(itemName);
-                                  if (ResponsiveWidget.isSmallScreen(context)) {
-                                    Get.back();
-                                    //TODO :: go to it item name Route
-                                  }
-                                }
-                              },
-                            ),
-                          )
-                          .toList(),
+                    SizedBox(
+                      width: width / 48,
                     )
                   ],
+                ),
+                const SizedBox(height: 40),
+                Divider(
+                  color: lightGray.withOpacity(.1),
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: sideMenuItems
+                      .map(
+                        (itemName) => SideMenuItem(
+                          itemName: itemName == AuthenticationPageRoute
+                              ? "Log Out"
+                              : itemName,
+                          onTap: () {
+                            if (itemName == AuthenticationPageRoute) {
+                              //TODO: go to authentication page
+                            }
+                            if (!menuController.isActive(itemName)) {
+                              menuController.changeActiveitemTo(itemName);
+                              if (ResponsiveWidget.isSmallScreen(context)) {
+                                Get.back();
+                                //TODO :: go to it item name Route
+                              }
+                            }
+                          },
+                        ),
+                      )
+                      .toList(),
                 )
-              : const Text("data"),
+              ],
+            )
         ],
       ),
     );
