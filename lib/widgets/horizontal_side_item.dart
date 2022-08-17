@@ -24,15 +24,15 @@ class HorizontalMenuItem extends StatelessWidget {
             ? menuController.onHover(itemName)
             : menuController.onHover("not hovering");
       },
-      child: Obx(
+      child: Obx( 
         () => Container(
-          color: menuController.onHover(itemName)
+          color: menuController.isHovering(itemName)
               ? lightGray.withOpacity(.1)
               : Colors.transparent,
           child: Row(
             children: [
               Visibility(
-                visible: menuController.onHover(itemName) ||
+                visible: menuController.isHovering(itemName) ||
                     menuController.isActive(itemName),
                 maintainSize: true,
                 maintainState: true,
@@ -44,7 +44,7 @@ class HorizontalMenuItem extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: width / 8,
+                width: width / 80,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),

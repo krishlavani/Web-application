@@ -71,7 +71,7 @@ class SideMenu extends StatelessWidget {
                   ),
                 )
                 .toList(),
-          )
+          ) 
         ],
       ),
     );

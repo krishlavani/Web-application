@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../constants/controllers.dart';
 import '../constants/style.dart';
 import 'custom_text.dart';
@@ -22,13 +21,13 @@ class VerticalMenyItem extends StatelessWidget {
       },
       child: Obx(
         () => Container(
-          color: menuController.onHover(itemName)
+          color: menuController.isHovering(itemName)
               ? lightGray.withOpacity(.1)
               : Colors.transparent,
           child: Row(
             children: [
               Visibility(
-                visible: menuController.onHover(itemName) ||
+                visible: menuController.isHovering(itemName) ||
                     menuController.isActive(itemName),
                 maintainSize: true,
                 maintainState: true,
