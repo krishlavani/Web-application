@@ -8,6 +8,6 @@ const AuthenticationPageRoute = "authentication";
 List sideMenuItems = [
   OverViewPageRoute,
   DriversPageRoute,
-  DriversPageRoute,
+  ClientsPageRoute,
   AuthenticationPageRoute
 ];

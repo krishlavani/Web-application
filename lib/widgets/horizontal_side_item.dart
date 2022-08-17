@@ -24,7 +24,7 @@ class HorizontalMenuItem extends StatelessWidget {
             ? menuController.onHover(itemName)
             : menuController.onHover("not hovering");
       },
-      child: Obx( 
+      child: Obx(
         () => Container(
           color: menuController.isHovering(itemName)
               ? lightGray.withOpacity(.1)
