@@ -42,36 +42,36 @@ class SideMenu extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(height: 40),
-                Divider(
-                  color: lightGray.withOpacity(.1),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: sideMenuItems
-                      .map(
-                        (itemName) => SideMenuItem(
-                          itemName: itemName == AuthenticationPageRoute
-                              ? "Log Out"
-                              : itemName,
-                          onTap: () {
-                            if (itemName == AuthenticationPageRoute) {
-                              //TODO: go to authentication page
-                            }
-                            if (!menuController.isActive(itemName)) {
-                              menuController.changeActiveitemTo(itemName);
-                              if (ResponsiveWidget.isSmallScreen(context)) {
-                                Get.back();
-                                //TODO :: go to it item name Route
-                              }
-                            }
-                          },
-                        ),
-                      )
-                      .toList(),
-                )
               ],
-            )
+            ),
+          const SizedBox(height: 40),
+          Divider(
+            color: lightGray.withOpacity(.1),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: sideMenuItems
+                .map(
+                  (itemName) => SideMenuItem(
+                    itemName: itemName == AuthenticationPageRoute
+                        ? "Log Out"
+                        : itemName,
+                    onTap: () {
+                      if (itemName == AuthenticationPageRoute) {
+                        //TODO: go to authentication page
+                      }
+                      if (!menuController.isActive(itemName)) {
+                        menuController.changeActiveitemTo(itemName);
+                        if (ResponsiveWidget.isSmallScreen(context)) {
+                          Get.back();
+                          //TODO :: go to it item name Route
+                        }
+                      }
+                    },
+                  ),
+                )
+                .toList(),
+          )
         ],
       ),
     );
