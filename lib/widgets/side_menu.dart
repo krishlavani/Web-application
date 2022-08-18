@@ -58,13 +58,14 @@ class SideMenu extends StatelessWidget {
                         : itemName,
                     onTap: () {
                       if (itemName == AuthenticationPageRoute) {
+                        // ignore: todo
                         //TODO: go to authentication page
                       }
                       if (!menuController.isActive(itemName)) {
                         menuController.changeActiveitemTo(itemName);
                         if (ResponsiveWidget.isSmallScreen(context)) {
                           Get.back();
-                          //TODO :: go to it item name Route
+                          navigationController.navigateTo(itemName);
                         }
                       }
                     },

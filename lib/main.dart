@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:web/controllers/menu_controller.dart';
 import 'package:web/layout.dart';
 
+import 'controllers/navigation_controller.dart';
+
 void main() {
   Get.put(MenuController());
+  Get.put(NavigationController());
   runApp(const MyApp());
 }
 
