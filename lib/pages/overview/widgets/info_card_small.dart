@@ -4,14 +4,14 @@ import 'package:web/widgets/custom_text.dart';
 
 class InfoCardSmall extends StatelessWidget {
   final String title;
-  final String? value;
+  final String value;
   final Color? topColor;
   final bool isActive;
   final void Function()? onTap;
   const InfoCardSmall(
       {Key? key,
       required this.title,
-      this.value,
+      required this.value,
       this.topColor,
       this.isActive = false,
       this.onTap})
@@ -33,6 +33,7 @@ class InfoCardSmall extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomText(
                 text: title,
@@ -41,7 +42,7 @@ class InfoCardSmall extends StatelessWidget {
                 color: isActive ? active : lightGray,
               ),
               CustomText(
-                text: title,
+                text: value,
                 size: 24,
                 weight: FontWeight.bold,
                 color: isActive ? active : lightGray,
