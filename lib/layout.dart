@@ -14,6 +14,7 @@ class SiteLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldkey,
+      extendBodyBehindAppBar: true,
       appBar: topNavigationBar(context, scaffoldkey),
       // drawer: const Drawer(),
       drawer: const Drawer(
