@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web/constants/controllers.dart';
 import 'package:web/helpers/responsiveness.dart';
+import 'package:web/pages/overview/widgets/available_drivers.dart';
 import 'package:web/pages/overview/widgets/overview_cards_large.dart';
 import 'package:web/pages/overview/widgets/overview_cards_medium.dart';
 import 'package:web/pages/overview/widgets/overview_cards_small.dart';
@@ -30,22 +31,31 @@ class OverViewPage extends StatelessWidget {
               ],
             )),
         Expanded(
-            child: ListView(
-          children: [
-            if (ResponsiveWidget.isLargeScreen(context) ||
-                ResponsiveWidget.isMediumScreen(context))
-              if (ResponsiveWidget.isCustomScreen(context))
-                const OverviewCardsMediumScreen()
+          child: ListView(
+            children: [
+              if (ResponsiveWidget.isLargeScreen(context) ||
+                  ResponsiveWidget.isMediumScreen(context))
+                if (ResponsiveWidget.isCustomScreen(context))
+                  const OverviewCardsMediumScreen()
+                else
+                  const OverViewCardsLargeScreen()
               else
-                const OverViewCardsLargeScreen()
-            else
-              const OverviewCardsSmallScreen(),
-            if (!ResponsiveWidget.isSmallScreen(context))
-              const RevenueSectionLarge()
-            else
-              const RevenueSectionSmall()
-          ],
-        ))
+                const OverviewCardsSmallScreen(),
+              if (!ResponsiveWidget.isSmallScreen(context))
+                const RevenueSectionLarge()
+              else
+                const RevenueSectionSmall()
+            ],
+          ),
+        ),
+        Expanded(
+          child: Column(
+            children: const [
+              Spacer(),
+              DataTable2SimpleDemo(),
+            ],
+          ),
+        ),
       ],
     );
   }
