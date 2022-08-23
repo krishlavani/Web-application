@@ -17,19 +17,21 @@ class OverViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Obx(() => Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(
-                      top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
-                  child: CustomText(
-                    text: menuController.activeItem.value,
-                    size: 24,
-                    weight: FontWeight.bold,
-                  ),
-                )
-              ],
-            )),
+        Obx(
+          () => Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                    top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
+                child: CustomText(
+                  text: menuController.activeItem.value,
+                  size: 24,
+                  weight: FontWeight.bold,
+                ),
+              )
+            ],
+          ),
+        ),
         Expanded(
           child: ListView(
             children: [
@@ -44,15 +46,8 @@ class OverViewPage extends StatelessWidget {
               if (!ResponsiveWidget.isSmallScreen(context))
                 const RevenueSectionLarge()
               else
-                const RevenueSectionSmall()
-            ],
-          ),
-        ),
-        Expanded(
-          child: Column(
-            children: const [
-              Spacer(),
-              DataTable2SimpleDemo(),
+                const RevenueSectionSmall(),
+              const AvailableDrivers()
             ],
           ),
         ),

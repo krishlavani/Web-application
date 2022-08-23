@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:web/constants/style.dart';
 import 'package:web/pages/overview/widgets/bar_chart.dart';
 import 'package:web/pages/overview/widgets/revenue_info.dart';
@@ -20,7 +17,7 @@ class RevenueSectionLarge extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, 6),
+            offset: const Offset(0, 6),
             color: lightGray.withOpacity(.1),
             blurRadius: 12,
           )
