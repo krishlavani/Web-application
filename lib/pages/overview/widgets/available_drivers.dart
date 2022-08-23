@@ -42,66 +42,78 @@ class AvailableDrivers extends StatelessWidget {
             ],
           ),
           DataTable2(
-              columnSpacing: 12,
-              horizontalMargin: 12,
-              minWidth: 600,
-              columns: const [
-                DataColumn2(
-                  label: Text('Name'),
-                  size: ColumnSize.L,
-                ),
-                DataColumn(
-                  label: Text('Location'),
-                ),
-                DataColumn(
-                  label: Text('Rating'),
-                ),
-                DataColumn(
-                  label: Text('Action'),
-                ),
-              ],
-              rows: List<DataRow>.generate(
-                  7,
-                  (index) => DataRow(cells: [
-                        const DataCell(CustomText(
-                          text: "Krish Lavani",
-                        )),
-                        const DataCell(CustomText(
-                          text: "Surat City",
-                        )),
-                        DataCell(Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.deepOrange,
-                              size: 18,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            CustomText(
-                              text: "4.$index",
-                            )
-                          ],
-                        )),
-                        DataCell(Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                color: active,
-                                width: .5,
-                              ),
-                              color: light,
-                              borderRadius: BorderRadius.circular(20)),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 6),
-                          child: CustomText(
-                            text: "Available Delivery",
-                            color: active.withOpacity(.7),
-                            weight: FontWeight.bold,
+            columnSpacing: 12,
+            horizontalMargin: 12,
+            minWidth: 600,
+            columns: const [
+              DataColumn2(
+                label: Text('Name'),
+                size: ColumnSize.L,
+              ),
+              DataColumn(
+                label: Text('Location'),
+              ),
+              DataColumn(
+                label: Text('Rating'),
+              ),
+              DataColumn(
+                label: Text('Action'),
+              ),
+            ],
+            rows: List<DataRow>.generate(
+              7,
+              (index) => DataRow(
+                cells: [
+                  const DataCell(
+                    CustomText(
+                      text: "Krish Lavani",
+                    ),
+                  ),
+                  const DataCell(
+                    CustomText(
+                      text: "Surat City",
+                    ),
+                  ),
+                  DataCell(
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.star,
+                          color: Colors.deepOrange,
+                          size: 18,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        CustomText(
+                          text: "4.$index",
+                        )
+                      ],
+                    ),
+                  ),
+                  DataCell(
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: active,
+                            width: .5,
                           ),
-                        ))
-                      ]))),
+                          color: light,
+                          borderRadius: BorderRadius.circular(20)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 6),
+                      child: CustomText(
+                        text: "Available Delivery",
+                        color: active.withOpacity(.7),
+                        weight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

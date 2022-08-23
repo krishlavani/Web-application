@@ -47,7 +47,7 @@ class OverViewPage extends StatelessWidget {
                 const RevenueSectionLarge()
               else
                 const RevenueSectionSmall(),
-              const AvailableDrivers()
+              const AvailableDrivers(),
             ],
           ),
         ),
