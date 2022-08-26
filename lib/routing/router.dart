@@ -8,13 +8,13 @@ import '../pages/overview/overview.dart';
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case OverViewPageRoute:
-      return _getPageRoute(const OverViewPage());
+      return _getPageRoute(OverViewPage());
     case DriversPageRoute:
       return _getPageRoute(const DriversPage());
     case ClientsPageRoute:
       return _getPageRoute(const ClientsPage());
     default:
-      return _getPageRoute(const OverViewPage());
+      return _getPageRoute(OverViewPage());
   }
 }
 

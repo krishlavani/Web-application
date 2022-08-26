@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web/constants/controllers.dart';
@@ -11,47 +13,46 @@ import 'package:web/pages/overview/widgets/revenue_section_small.dart';
 import 'package:web/widgets/custom_text.dart';
 
 class OverViewPage extends StatelessWidget {
-  const OverViewPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Obx(
-          () => Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                    top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
-                child: CustomText(
-                  text: menuController.activeItem.value,
-                  size: 24,
-                  weight: FontWeight.bold,
-                ),
-              )
-            ],
+    return Container(
+      child: Column(
+        children: [
+          Obx(
+            () => Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                      top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
+                  child: CustomText(
+                    text: menuController.activeItem.value,
+                    size: 24,
+                    weight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: ListView(
+          Expanded(
+              child: ListView(
             children: [
               if (ResponsiveWidget.isLargeScreen(context) ||
                   ResponsiveWidget.isMediumScreen(context))
-                if (ResponsiveWidget.isCustomScreen(context))
-                  const OverviewCardsMediumScreen()
+                if (ResponsiveWidget.isCustomSize(context))
+                  OverviewCardsMediumScreen()
                 else
-                  const OverViewCardsLargeScreen()
+                  OverViewCardsLargeScreen()
               else
-                const OverviewCardsSmallScreen(),
+                OverviewCardsSmallScreen(),
               if (!ResponsiveWidget.isSmallScreen(context))
-                const RevenueSectionLarge()
+                RevenueSectionLarge()
               else
-                const RevenueSectionSmall(),
-              const AvailableDrivers(),
+                RevenueSectionSmall(),
+              AvailableDrivers(),
             ],
-          ),
-        ),
-      ],
+          )),
+        ],
+      ),
     );
   }
 }

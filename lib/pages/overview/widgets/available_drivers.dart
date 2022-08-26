@@ -64,34 +64,24 @@ class AvailableDrivers extends StatelessWidget {
               7,
               (index) => DataRow(
                 cells: [
-                  const DataCell(
-                    CustomText(
-                      text: "Krish Lavani",
-                    ),
-                  ),
-                  const DataCell(
-                    CustomText(
-                      text: "Surat City",
-                    ),
-                  ),
-                  DataCell(
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.deepOrange,
-                          size: 18,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        CustomText(
-                          text: "4.$index",
-                        )
-                      ],
-                    ),
-                  ),
+                  const DataCell(CustomText(text: "Krish Lavani")),
+                  const DataCell(CustomText(text: "Surat City")),
+                  DataCell(Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Icon(
+                        Icons.star,
+                        color: Colors.deepOrange,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      CustomText(
+                        text: "4.5",
+                      )
+                    ],
+                  )),
                   DataCell(
                     Container(
                       decoration: BoxDecoration(
