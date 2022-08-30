@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:web/constants/controllers.dart';
 import 'package:web/constants/style.dart';
 import 'package:web/helpers/responsiveness.dart';
+import 'package:web/pages/authentication/authentication.dart';
 import 'package:web/routing/routes.dart';
 import 'package:web/widgets/custom_text.dart';
 import 'package:web/widgets/side_menu_item.dart';
@@ -52,23 +53,19 @@ class SideMenu extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: sideMenuItems
                 .map(
-                  (itemName) => SideMenuItem(
-                    itemName: itemName == AuthenticationPageRoute
-                        ? "Log Out"
-                        : itemName,
+                  (item) => SideMenuItem(
+                    itemName: item.name,
                     onTap: () {
-                      if (itemName == AuthenticationPageRoute) {
-                        // ignore: todo
-                        //TODO: go to authentication page
+                      if (item.route == AuthenticationPageRoute) {
+                        menuController
+                            .changeActiveItemTo(OverViewPageDisplayName);
+                        Get.offAllNamed(AuthenticationPageRoute);
                       }
-                      if (!menuController.isActive(itemName)) {
-                        menuController.changeActiveItemTo(itemName);
+                      if (!menuController.isActive(item.name)) {
+                        menuController.changeActiveItemTo(item.name);
                         if (ResponsiveWidget.isSmallScreen(context)) {
                           Get.back();
-                          navigationController.navigateTo(itemName);
-                        } else {
-                          Get.back();
-                          navigationController.navigateTo(itemName);
+                          navigationController.navigateTo(item.route);
                         }
                       }
                     },

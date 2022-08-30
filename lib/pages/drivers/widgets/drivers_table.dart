@@ -79,7 +79,7 @@ class DriversTable extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   child: CustomText(
-                    text: "Available Delivery",
+                    text: "Block Drivers",
                     color: active.withOpacity(.7),
                     weight: FontWeight.bold,
                   ),
